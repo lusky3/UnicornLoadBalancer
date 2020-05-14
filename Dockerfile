@@ -13,7 +13,7 @@ RUN apt-get update \
     && apt-get -y autoremove \
     && apt-get clean
 
-ENV SERVER_PORT=3001
+ENV SERVER_PORT=3001 \
     SERVER_PUBLIC="http://127.0.0.1:3001/" \
     PLEX_HOST="127.0.0.1" \
     PLEX_PORT=32400 \
