@@ -8,8 +8,7 @@ RUN apt-get update \
     && apt-get install -y nodejs \
     && git clone https://github.com/UnicornTranscoder/UnicornLoadBalancer.git /UnicornLoadBalancer \
     && cd /UnicornLoadBalancer \
-    && npm install \
-    && npm start \
+    && /usr/bin/npm install \
     && apt-get -y autoremove \
     && apt-get clean
 
