@@ -1,12 +1,12 @@
 FROM ubuntu:18.04
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
+    && apt-get install -y -qq -o "Dpkg::Options::=--force-confdef" --no-install-recommends \
     git \
     curl \
     nodejs \
     npm \
-    && git clone https://github.com/UnicornTranscoder/UnicornLoadBalancer.git /UnicornLoadBalancer \
+    && GIT_SSL_NO_VERIFY=true git clone https://github.com/UnicornTranscoder/UnicornLoadBalancer.git /UnicornLoadBalancer \
     && cd /UnicornLoadBalancer \
     && /usr/bin/npm install \
     && apt-get -y autoremove \
