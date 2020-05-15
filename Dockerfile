@@ -1,11 +1,13 @@
 FROM ubuntu:18.04
 
 RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get -y -qq -o "Dpkg::Options::=--force-confdef" upgrade \
     && DEBIAN_FRONTEND=noninteractive apt-get -y -qq -o "Dpkg::Options::=--force-confdef" install --no-install-recommends \
     git \
     curl \
     nodejs \
     npm \
+    && DEBIAN_FRONTEND=noninteractive apt-get -y -qq -o "Dpkg::Options::=--force-confdef" autoremove \
     && GIT_SSL_NO_VERIFY=true git clone https://github.com/UnicornTranscoder/UnicornLoadBalancer.git /UnicornLoadBalancer \
     && cd /UnicornLoadBalancer \
     && /usr/bin/npm config set strict-ssl false \
