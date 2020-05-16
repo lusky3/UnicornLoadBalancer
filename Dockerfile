@@ -32,8 +32,13 @@ ENV SERVER_PORT=3001 \
     REDIS_PORT=6379 \
     REDIS_PASSWORD= \
     REDIS_DB=0 \
-    CUSTOM_SCORES_TIMEOUT=10
+    CUSTOM_SCORES_TIMEOUT=10 \
+    CUSTOM_IMAGE_PROXY="https://images.weserv.nl/" \
+    CUSTOM_DOWNLOAD_FORWARD="false" \
+    CUSTOM_SERVERS_LIST= 
 
+VOLUME /Sessions
+VOLUME /Databases
 EXPOSE 3001
 ENTRYPOINT ["/UnicornLoadBalancer", "--"]
 CMD ["/usr/bin/npm start"]
