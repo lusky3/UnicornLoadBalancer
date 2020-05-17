@@ -15,9 +15,9 @@ RUN apt-get update \
     && apt-get -y autoremove \
     && apt-get clean
     
-COPY run.sh /UnicornLoadBalancer
+COPY run.sh /
 
-RUN chmod +x /UnicornLoadBalancer/run.sh
+RUN chmod +x /run.sh
 
 ENV SERVER_PORT=3001 \
     SERVER_PUBLIC="http://127.0.0.1:3001/" \
@@ -45,4 +45,4 @@ VOLUME /usr/lib/plexmediaserver/
 VOLUME /Sessions
 VOLUME /Databases
 EXPOSE 3001
-ENTRYPOINT ["/UnicornLoadBalancer/run.sh"]
+CMD ["run.sh"]
