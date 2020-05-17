@@ -9,8 +9,7 @@ RUN apk update \
     npm \
     && git clone https://github.com/UnicornTranscoder/UnicornLoadBalancer.git /UnicornLoadBalancer \
     && cd /UnicornLoadBalancer \
-    && /usr/bin/npm install \
-    && apk cache clean
+    && /usr/bin/npm install
     
 COPY run.sh /
 
