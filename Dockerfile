@@ -1,19 +1,16 @@
-FROM ubuntu:20.04
+FROM alpine:3
 
-RUN apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get -y -qq -o "Dpkg::Options::=--force-confdef" upgrade \
-    && DEBIAN_FRONTEND=noninteractive apt-get -y -qq -o "Dpkg::Options::=--force-confdef" install --no-install-recommends \
+RUN apk update \
+    && apk upgrade \
+    && apk add \
     git \
     curl \
     nodejs \
     npm \
-    && DEBIAN_FRONTEND=noninteractive apt-get -y -qq -o "Dpkg::Options::=--force-confdef" autoremove \
-    && GIT_SSL_NO_VERIFY=true git clone https://github.com/UnicornTranscoder/UnicornLoadBalancer.git /UnicornLoadBalancer \
+    && git clone https://github.com/UnicornTranscoder/UnicornLoadBalancer.git /UnicornLoadBalancer \
     && cd /UnicornLoadBalancer \
-    && /usr/bin/npm config set strict-ssl false \
     && /usr/bin/npm install \
-    && apt-get -y autoremove \
-    && apt-get clean
+    && apk cache clean
     
 COPY run.sh /
 
@@ -32,10 +29,6 @@ ENV SERVER_PORT=3001 \
     DATABASE_POSTGRESQL_USER= \
     DATABASE_POSTGRESQL_PASSWORD= \
     DATABASE_POSTGRESQL_PORT=5432 \
-    #REDIS_HOST= \
-    #REDIS_PORT=6379 \
-    #REDIS_PASSWORD= \
-    #REDIS_DB=0 \
     CUSTOM_SCORES_TIMEOUT=10 \
     CUSTOM_IMAGE_PROXY="https://images.weserv.nl/" \
     CUSTOM_DOWNLOAD_FORWARD="false" \
@@ -45,4 +38,4 @@ VOLUME /usr/lib/plexmediaserver/
 VOLUME /Sessions
 VOLUME /Databases
 EXPOSE 3001
-CMD ["run.sh"]
+CMD ["/run.sh"]
