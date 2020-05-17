@@ -14,15 +14,19 @@ RUN apt-get update \
     && /usr/bin/npm install \
     && apt-get -y autoremove \
     && apt-get clean
+    
+COPY run.sh /UnicornLoadBalancer
+
+RUN chmod +x /UnicornLoadBalancer/run.sh
 
 ENV SERVER_PORT=3001 \
     SERVER_PUBLIC="http://127.0.0.1:3001/" \
     PLEX_HOST="127.0.0.1" \
     PLEX_PORT=32400 \
     PLEX_PATH_USR="/usr/lib/plexmediaserver/" \
-    PLEX_PATH_SESSIONS="/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Cache/Transcode/Sessions" \
+    PLEX_PATH_SESSIONS="/Sessions" \
     DATABASE_MODE="sqlite" \
-    DATABASE_SQLITE_PATH="/var/lib/plexmediaserver/Library/Application Support/Plex Media Server/Plug-in Support/Databases/com.plexapp.plugins.library.db" \
+    DATABASE_SQLITE_PATH="/Databases/com.plexapp.plugins.library.db" \
     DATABASE_POSTGRESQL_HOST= \
     DATABASE_POSTGRESQL_DATABASE= \
     DATABASE_POSTGRESQL_USER= \
@@ -37,8 +41,8 @@ ENV SERVER_PORT=3001 \
     CUSTOM_DOWNLOAD_FORWARD="false" \
     CUSTOM_SERVERS_LIST= 
 
+VOLUME /usr/lib/plexmediaserver/
 VOLUME /Sessions
 VOLUME /Databases
 EXPOSE 3001
-ENTRYPOINT ["/UnicornLoadBalancer", "--"]
-CMD ["/usr/bin/npm start"]
+ENTRYPOINT ["/UnicornLoadBalancer/run.sh"]
