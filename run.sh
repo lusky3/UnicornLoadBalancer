@@ -2,5 +2,4 @@
 #
 # Purpose: UnicornLoadBalancer initialization script for Docker container
 
-cd /UnicornLoadBalancer
-exec npm start
+exec npm start --prefix /UnicornLoadBalancer
