@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-COPY /scripts /
+COPY /scripts /scripts
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get -y upgrade \
