@@ -12,11 +12,9 @@ RUN apt-get update \
     && cd /UnicornLoadBalancer \
     && /usr/bin/npm install \
     && apt-get -y autoremove \
-    && apt-get clean
-    
-COPY run.sh /
-
-RUN chmod +x /run.sh
+    && apt-get clean \
+    chmod +x /run.sh \
+    && chmod +x /UnicornLoadBalancer/update.sh
 
 ENV SERVER_PORT=3001 \
     SERVER_PUBLIC="http://127.0.0.1:3001/" \
