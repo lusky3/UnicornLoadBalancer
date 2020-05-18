@@ -1,7 +1,6 @@
 FROM ubuntu:20.04
 
-COPY /scripts/run.sh /
-COPY /scripts/update.sh /UnicornLoadBalancer
+COPY /scripts /
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get -y upgrade \
@@ -16,12 +15,12 @@ RUN apt-get update \
     && /usr/bin/npm install \
     && apt-get -y autoremove \
     && apt-get clean \
-    rm -rf /var/lib/apt/lists/* && \
-    rm -rf /tmp/* && \
-    rm -rf var/tmp/* \
-    chmod +x /run.sh \
-    && chmod +x /UnicornLoadBalancer/update.sh \
-    && chmod +x /UnicornLoadBalancer/env-check.sh
+    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /tmp/* \
+    && rm -rf var/tmp/* \
+    && chmod +x /scripts/run.sh \
+    && chmod +x /scripts/update.sh \
+    && chmod +x /scripts/env-check.sh
 
 ENV SERVER_PORT=3001 \
     SERVER_PUBLIC="http://127.0.0.1:3001/" \
@@ -49,4 +48,4 @@ VOLUME /usr/lib/plexmediaserver/
 VOLUME /Sessions
 VOLUME /Databases
 EXPOSE 3001
-CMD ["/run.sh"]
+CMD ["/scripts/run.sh"]
