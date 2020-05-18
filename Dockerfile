@@ -13,8 +13,12 @@ RUN apt-get update \
     && /usr/bin/npm install \
     && apt-get -y autoremove \
     && apt-get clean \
+    rm -rf /var/lib/apt/lists/* && \
+    rm -rf /tmp/* && \
+    rm -rf var/tmp/* \
     chmod +x /run.sh \
-    && chmod +x /UnicornLoadBalancer/update.sh
+    && chmod +x /UnicornLoadBalancer/update.sh \
+    && chmod +x /UnicornLoadBalancer/env-check.sh
 
 ENV SERVER_PORT=3001 \
     SERVER_PUBLIC="http://127.0.0.1:3001/" \
@@ -29,10 +33,10 @@ ENV SERVER_PORT=3001 \
     DATABASE_POSTGRESQL_USER= \
     DATABASE_POSTGRESQL_PASSWORD= \
     DATABASE_POSTGRESQL_PORT=5432 \
-    #REDIS_HOST= \
-    #REDIS_PORT=6379 \
-    #REDIS_PASSWORD= \
-    #REDIS_DB=0 \
+    REDIS_HOST= \
+    REDIS_PORT=6379 \
+    REDIS_PASSWORD= \
+    REDIS_DB=0 \
     CUSTOM_SCORES_TIMEOUT=10 \
     CUSTOM_IMAGE_PROXY="https://images.weserv.nl/" \
     CUSTOM_DOWNLOAD_FORWARD="false" \
@@ -42,4 +46,4 @@ VOLUME /usr/lib/plexmediaserver/
 VOLUME /Sessions
 VOLUME /Databases
 EXPOSE 3001
-CMD ["run.sh"]
+CMD ["/run.sh"]
