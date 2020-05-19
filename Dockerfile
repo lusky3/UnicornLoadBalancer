@@ -18,14 +18,7 @@ RUN \
     rm -rf /tmp/* && \
     rm -rf var/tmp/*
 
-ENV SERVER_PORT=3001 \
-    SERVER_PUBLIC="http://127.0.0.1:3001/" \
-    PLEX_HOST="127.0.0.1" \
-    PLEX_PORT=32400 \
-    PLEX_PATH_USR="/usr/lib/plexmediaserver/" \
-    PLEX_PATH_SESSIONS="/Sessions" \
-    DATABASE_MODE="sqlite" \
-    DATABASE_SQLITE_PATH="/Databases/com.plexapp.plugins.library.db" \
+ENV DATABASE_MODE="sqlite" \
     DATABASE_POSTGRESQL_HOST= \
     DATABASE_POSTGRESQL_DATABASE= \
     DATABASE_POSTGRESQL_USER= \
