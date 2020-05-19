@@ -1,5 +1,7 @@
 # UnicornLoadBalancer
-Docker container for UnicornLoadBalancer
+Docker container for UnicornLoadBalancer  
+  
+Branch is a copy of [https://github.com/magn2o/UnicornDockerUnofficial](magn20).
 
 | Name | Description | Type | Default |
 | ----------------- | ------------------------------------------------------------ | ------| ------- |
