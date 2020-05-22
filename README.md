@@ -14,7 +14,7 @@ Alpine: `alpine`, `alpine-latest`
 ### Plex All-In-One
 Contains Plex ([Official Docker Image](https://github.com/plexinc/pms-docker)), [UnicornLoadBalancer](https://github.com/UnicornTranscoder/UnicornLoadBalancer) and [UnicornFFMPEG](https://github.com/UnicornTranscoder/UnicornFFMPEG). Originally built on-top of the work by [magn2o](https://github.com/magn2o/UnicornDockerUnofficial). Uses the same Plex Environment Variables. Also uses the same UnicornLoadBalancer Environment Variables listed below, although most are pre-configured and don't need to be modified.  
   
-Important note: The `pms-docker` branch will update whenever [plexinc/pms-docker](https://hub.docker.com/r/plexinc/pms-docker) updates. Becuase [UnicornTranscoder](https://github.com/UnicornTranscoder/UnicornTranscoder) is built specific to the Plex build, it's recommended you do not update the container until your UnicornTranscoder ([releases](https://github.com/UnicornTranscoder/UnicornTranscoder/releases)) build matches the latest Plex build ([tags](https://hub.docker.com/r/plexinc/pms-docker/tags).
+Important note: The `pms-docker` branch will update whenever [plexinc/pms-docker](https://hub.docker.com/r/plexinc/pms-docker) updates. Becuase [UnicornTranscoder](https://github.com/UnicornTranscoder/UnicornTranscoder) is built specific to the Plex build, it's recommended you do not update the container until your UnicornTranscoder ([releases](https://github.com/UnicornTranscoder/UnicornTranscoder/releases)) build matches the latest Plex build ([tags](https://hub.docker.com/r/plexinc/pms-docker/tags)).  
 Tags: `pms-docker`
 
 ### Other
