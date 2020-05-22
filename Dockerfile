@@ -1,4 +1,4 @@
-FROM plexinc/pms-docker
+FROM plexinc/pms-docker:1.19.3.2843-e3c1f7bcd
 # https://github.com/magn2o/UnicornDockerUnofficial/blob/master/Dockerfile
 
 RUN \
