@@ -1,7 +1,32 @@
 # UnicornLoadBalancer
-Docker container for UnicornLoadBalancer  
+Unofficial Docker container for [UnicornLoadBalancer](https://github.com/UnicornTranscoder/UnicornLoadBalancer), part of the **UnicornTranscoder Project**.  
+
+Can be found on [Docker Hub](https://registry.hub.docker.com/r/lusky3/unicornloadbalancer)
+
+## Docker Tags
+
+### UnicornLoadbalancer Only
+Contains only [UnicornLoadBalancer](https://github.com/UnicornTranscoder/UnicornLoadBalancer). Uses the Environment variables listed below. No difference between the Ubuntu and Alpine builds, functionality-wise. Personal preference, really.  
+   
+Ubuntu: `ubuntu`, `ubuntu-latest`, `latest`  
+Alpine: `alpine`, `alpine-latest`  
+
+### Plex All-In-One
+Contains Plex ([Official Docker Image](https://github.com/plexinc/pms-docker)), [UnicornLoadBalancer](https://github.com/UnicornTranscoder/UnicornLoadBalancer) and [UnicornFFMPEG](https://github.com/UnicornTranscoder/UnicornFFMPEG). Originally built on-top of the work by [magn2o](https://github.com/magn2o/UnicornDockerUnofficial). Uses the same Plex Environment Variables. Also uses the same UnicornLoadBalancer Environment Variables listed below, although most are pre-configured and don't need to be modified.  
   
-Branch is a copy of [https://github.com/magn2o/UnicornDockerUnofficial](magn20).
+Important note: The `pms-docker`/`pms-docker-latest` branch will update whenever [plexinc/pms-docker:latest](https://hub.docker.com/r/plexinc/pms-docker) updates. Becuase [UnicornTranscoder](https://github.com/UnicornTranscoder/UnicornTranscoder) is built specific to the Plex build, it's recommended you do not update the container until your UnicornTranscoder ([releases](https://github.com/UnicornTranscoder/UnicornTranscoder/releases)) build matches the latest Plex build ([tags](https://hub.docker.com/r/plexinc/pms-docker/tags)).  
+  
+Always latest: `pms-docker`, `pms-docker-latest`  
+Always stable: `pms-docker-stable`, `1.19.3.2843-e3c1f7bcd`*  
+*\*Will changed based on the current stable build*
+
+### Other
+Testing and Development - Very alpha, could be broken at any time.
+  
+Tags: `dev`
+
+## UnicornLoadBalancer Environment Variables
+These are primarily for the UnicornLoadBalancer Only docker images
 
 | Name | Description | Type | Default |
 | ----------------- | ------------------------------------------------------------ | ------| ------- |
